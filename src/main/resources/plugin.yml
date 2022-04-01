@@ -1,0 +1,10 @@
+name: McLink
+version: '${project.version}'
+main: me.kaseknife95.mclink.McLink
+api-version: 1.18
+description: The plugin for McL!nk, a websocket implimentation which allows you to connect your minecraft server to a discord and other services
+commands:
+  setup:
+    description: does the server side portion of the setup process
+    usage: /<command>
+    permission: op
