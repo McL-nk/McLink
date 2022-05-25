@@ -16,10 +16,10 @@ public class Logger {
 
         // Regular Colors. Normal color, no bold, background color etc.
         BLACK("\033[0;30m"),    // BLACK
-        RED("\033[0;31m"),      // RED
-        GREEN("\033[0;32m"),    // GREEN
-        YELLOW("\033[0;33m"),   // YELLOW
-        BLUE("\033[0;34m"),     // BLUE
+        RED("\033[0;31;1m"),      // RED
+        GREEN("\033[0;32;1m"),    // GREEN
+        YELLOW("\033[0;33;1m"),   // YELLOW
+        BLUE("\033[0;34;22m"),     // BLUE
         MAGENTA("\033[0;35m"),  // MAGENTA
         CYAN("\033[0;36m"),     // CYAN
         WHITE("\033[0;37m"),    // WHITE

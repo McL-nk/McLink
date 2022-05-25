@@ -11,7 +11,7 @@
 
     <name>McLink</name>
 
-    <description>The plugin for McL!nk, a websocket implimentation which allows you to connect your minecraft server to
+    <description>The plugin for McL!nk, a websocket implementation which allows you to connect your minecraft server to
         a discord and other services
     </description>
     <properties>
@@ -90,6 +90,12 @@
             <artifactId>bstats-bukkit</artifactId>
             <version>3.0.0</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>2.17.2</version>
+            <type>pom</type>
         </dependency>
     </dependencies>
 </project>

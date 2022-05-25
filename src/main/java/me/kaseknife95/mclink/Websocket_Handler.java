@@ -1,10 +1,10 @@
 package me.kaseknife95.mclink;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import io.socket.client.IO;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
-import jdk.tools.jlink.plugin.Plugin;
+
 import me.kaseknife95.mclink.Util.Logger;
 import org.bukkit.Bukkit;
 import org.bukkit.command.ConsoleCommandSender;
@@ -14,23 +14,26 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.awt.*;
+
 import java.io.File;
 import java.net.URI;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
-import java.util.logging.Level;
+
 
 import static org.bukkit.Bukkit.getServer;
 
 public class Websocket_Handler {
 
-    private static Socket socket = IO.socket(URI.create("http://localhost:3000"));
+    private static final Socket socket = IO.socket(URI.create("http://localhost:3000"));
     static JavaPlugin plugin1;
+    static String id;
     public Websocket_Handler(JavaPlugin plugin) {
 
      plugin1 = plugin;
-
+         File file = new File(plugin1.getDataFolder()+File.separator+"Config.yml");
+         FileConfiguration config = YamlConfiguration.loadConfiguration(file);
+         this.id = config.getString("Server_UUID");
         socket.connect();
         socket.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
             @Override
@@ -55,9 +58,7 @@ public class Websocket_Handler {
                             return Bukkit.dispatchCommand( console, command );
                         }
                     } ).get();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
+                } catch (InterruptedException | ExecutionException e) {
                     e.printStackTrace();
                 }
             }
@@ -67,9 +68,7 @@ public class Websocket_Handler {
     // emit events to the websocket server from this plugin or other plugins using the built-in api
     public static void Emit(String event, String message){
 
-        File file = new File(plugin1.getDataFolder()+File.separator+"Config.yml");
-        FileConfiguration config = YamlConfiguration.loadConfiguration(file);
-        String id = config.getString("Server_UUID");
+
 
         JSONObject json = new JSONObject();
         try {
@@ -84,9 +83,6 @@ public class Websocket_Handler {
 
     public static void EmitObject(String event, JSONObject message){
 
-        File file = new File(plugin1.getDataFolder()+File.separator+"Config.yml");
-        FileConfiguration config = YamlConfiguration.loadConfiguration(file);
-        String id = config.getString("Server_UUID");
 
         JSONObject json = new JSONObject();
         try {

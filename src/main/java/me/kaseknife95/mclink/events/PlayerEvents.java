@@ -1,4 +1,4 @@
-package me.kaseknife95.mclink.Util;
+package me.kaseknife95.mclink.events;
 
 import me.kaseknife95.mclink.Websocket_Handler;
 import org.bukkit.entity.Player;
