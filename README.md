@@ -1,3 +1,3 @@
-# McLink ![build](https://github.com/McL-nk/McLink/actions/workflows/maven.yml/badge.svg)
+# McLink 
 
 ## This is the plugin for the mclink service
